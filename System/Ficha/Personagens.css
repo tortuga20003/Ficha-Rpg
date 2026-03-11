@@ -1,0 +1,185 @@
+body {
+    background: #1b1b1b;
+    font-family: Georgia, serif;
+    color: #222;
+    margin: 0;
+    padding: 20px;
+}
+
+/* titulo */
+h1 {
+    text-align: center;
+    color: #f5e6c8;
+    margin-bottom: 20px;
+}
+
+/* caixa principal */
+#visualizar, #editarFicha {
+    background: #f5e6c8;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: 3px solid #5a3a1b;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+/* subtitulos */
+h3 {
+    border-bottom: 2px solid #5a3a1b;
+    padding-bottom: 5px;
+    margin-top: 25px;
+}
+
+/* imagem personagem */
+#imagemV {
+    border-radius: 10px;
+    border: 3px solid #5a3a1b;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+#imagemV:hover {
+    transform: scale(1.05);
+}
+
+/* barra de vida */
+#barraVida {
+    transition: 0.4s;
+}
+
+/* inputs */
+input, textarea, select {
+    width: 100%;
+    padding: 6px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #5a3a1b;
+    font-family: Georgia, serif;
+    box-sizing: border-box;
+}
+
+/* permitir aumentar textarea manualmente */
+textarea{
+resize:vertical;
+}
+
+/* botões */
+button {
+    background: #5a3a1b;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+button:hover {
+    background: #7a4f28;
+}
+
+/* listas */
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 4px;
+}
+
+/* histórico */
+#historico {
+    background: #fff8e7;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #c2a97d;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+/* dano flutuante */
+#danoFlutuante {
+    font-size: 18px;
+}
+
+/* história */
+#historiaContainer {
+    background: #fff8e7;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #c2a97d;
+    margin-top: 10px;
+}
+
+/* usuario logado */
+#usuarioLogado{
+
+color: gold;
+font-weight: bold;
+font-size: 18px;
+
+background: #222;
+padding: 8px 12px;
+
+border-radius: 8px;
+
+position: fixed;
+top: 60px;
+right: 20px;
+
+box-shadow: 0 0 8px black;
+
+}
+
+/* habilidades e magias */
+
+#habilidadesV,
+#magiasV{
+max-height:250px;
+overflow-y:auto;
+scrollbar-width:none;
+list-style:none;
+padding-left:0;
+line-height:1.6;
+}
+
+#habilidadesV::-webkit-scrollbar,
+#magiasV::-webkit-scrollbar{
+display:none;
+}
+
+/* CAMPOS GRANDES */
+
+#habilidades,
+#magias,
+#historia{
+height:220px;
+font-size:16px;
+}
+
+/* CAMPOS MÉDIOS */
+
+#equipamentos,
+#inventario{
+height:140px;
+font-size:16px;
+}
+
+/* CELULAR */
+
+@media (max-width:600px){
+
+#habilidades,
+#magias,
+#historia{
+height:260px;
+}
+
+#equipamentos,
+#inventario{
+height:180px;
+}
+
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ficha RPG</title>
+
+<link rel="stylesheet" href="Personagens.css">
+
+</head>
+
+<body>
+
+<h1>🎲 Ficha de Personagem</h1>
+
+<p id="usuarioLogado"></p>
+
+<div id="visualizar">
+
+<img id="imagemV" width="150" style="cursor:pointer">
+
+<p id="nomeV"></p>
+<p id="racaV"></p>
+<p id="classeV"></p>
+
+<h3>❤️ Vida</h3>
+
+<div style="width:200px;height:20px;border:1px solid black;position:relative">
+
+<div id="barraVida" style="height:100%;background:red;width:100%"></div>
+
+<div id="danoFlutuante"
+style="position:absolute;top:-25px;left:80px;font-weight:bold;display:none">
+</div>
+
+</div>
+
+<p id="vidaV"></p>
+
+<button id="restaurarVida">❤️ Restaurar vida</button>
+
+<br><br>
+
+<label>Quantidade</label>
+<input type="number" id="quantidadeVida" value="5">
+
+<br>
+
+<label>Quem fez a ação</label>
+<input id="autorAcao">
+
+<br>
+
+<label>Tipo da ação</label>
+
+<select id="tipoAcao">
+<option>Ataque</option>
+<option>Magia</option>
+<option>Cura</option>
+</select>
+
+<br><br>
+
+<button id="dano">⚔️ Aplicar</button>
+
+<h3>⚔️ Histórico de combate</h3>
+
+<ul id="historico"></ul>
+
+<button id="limparHistorico">🧹 Limpar histórico</button>
+
+<h3>✨ Habilidades</h3>
+<ul id="habilidadesV"></ul>
+
+<h3>🛡️ Equipamentos</h3>
+<ul id="equipamentosV"></ul>
+
+<h3>🎒 Inventário</h3>
+<ul id="inventarioV"></ul>
+
+<h3>📜 Magias</h3>
+<ul id="magiasV"></ul>
+
+<h3 id="toggleHistoria" style="cursor:pointer">📖 História ▼</h3>
+
+<div id="historiaContainer" style="display:none">
+<p id="historiaV"></p>
+</div>
+
+<br>
+
+<button id="editar">✏️ Editar ficha</button>
+
+</div>
+
+
+
+<div id="editarFicha" style="display:none">
+
+<h2>✏️ Editar ficha</h2>
+
+<label>Imagem do personagem</label>
+<input type="file" id="imagem">
+
+<br><br>
+
+<label>Nome</label>
+<input id="nome">
+
+<br>
+
+<label>Raça</label>
+<input id="raca">
+
+<br>
+
+<label>Classe</label>
+<input id="classe">
+
+<br>
+
+<label>Vida máxima</label>
+<input id="vidaMax">
+
+<br>
+
+<h3>✨ Habilidades</h3>
+<textarea id="habilidades"></textarea>
+
+<h3>🛡️ Equipamentos</h3>
+<textarea id="equipamentos"></textarea>
+
+<h3>🎒 Inventário</h3>
+<textarea id="inventario"></textarea>
+
+<h3>📜 Magias</h3>
+<textarea id="magias"></textarea>
+
+<h3>📖 História</h3>
+<textarea id="historia"></textarea>
+
+<br><br>
+
+<button id="salvar">💾 Salvar</button>
+
+</div>
+
+<script type="module" src="Personagens.js"></script>
+
+</body>
+</html>
