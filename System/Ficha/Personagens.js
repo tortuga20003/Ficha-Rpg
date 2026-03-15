@@ -157,6 +157,8 @@ lista.unshift(texto);
 
 localStorage.setItem("historico",JSON.stringify(lista));
 
+salvarFirebase(); // 🔧 CORREÇÃO
+
 }
 
 function mostrarDano(valor){
@@ -173,7 +175,6 @@ setTimeout(()=>{texto.style.display="none"},1500);
 
 }
 
-/* ALTERAÇÃO PRINCIPAL */
 function transformarLista(texto){
 
 if(!texto) return "";
