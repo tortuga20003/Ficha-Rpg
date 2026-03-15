@@ -80,6 +80,8 @@ vidaAtual = vidaMax;
 
 localStorage.setItem("vidaAtual",vidaAtual);
 
+salvarFirebase(); // CORREÇÃO
+
 carregar();
 
 });
@@ -121,6 +123,8 @@ adicionarHistorico(autor+" usou "+tipo+" e causou "+quantidade+" de dano");
 
 localStorage.setItem("vidaAtual",vidaAtual);
 
+salvarFirebase(); // CORREÇÃO
+
 carregar();
 
 });
@@ -128,6 +132,8 @@ carregar();
 document.getElementById("limparHistorico").addEventListener("click",function(){
 
 localStorage.removeItem("historico");
+
+salvarFirebase(); // CORREÇÃO
 
 carregar();
 
@@ -143,6 +149,8 @@ localStorage.setItem("imagem",reader.result);
 
 carregar();
 
+salvarFirebase();
+
 };
 
 reader.readAsDataURL(this.files[0]);
@@ -157,7 +165,7 @@ lista.unshift(texto);
 
 localStorage.setItem("historico",JSON.stringify(lista));
 
-salvarFirebase(); // 🔧 CORREÇÃO
+salvarFirebase(); // CORREÇÃO
 
 }
 
