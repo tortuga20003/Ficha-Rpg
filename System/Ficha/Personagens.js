@@ -80,7 +80,7 @@ vidaAtual = vidaMax;
 
 localStorage.setItem("vidaAtual",vidaAtual);
 
-salvarFirebase(); // CORREÇÃO
+salvarFirebase();
 
 carregar();
 
@@ -123,7 +123,7 @@ adicionarHistorico(autor+" usou "+tipo+" e causou "+quantidade+" de dano");
 
 localStorage.setItem("vidaAtual",vidaAtual);
 
-salvarFirebase(); // CORREÇÃO
+salvarFirebase();
 
 carregar();
 
@@ -133,19 +133,41 @@ document.getElementById("limparHistorico").addEventListener("click",function(){
 
 localStorage.removeItem("historico");
 
-salvarFirebase(); // CORREÇÃO
+salvarFirebase();
 
 carregar();
 
 });
 
+
+// 🔥 CORREÇÃO DA IMAGEM (compressão)
 document.getElementById("imagem").addEventListener("change",function(){
+
+let file = this.files[0];
 
 let reader = new FileReader();
 
-reader.onload = function(){
+reader.onload = function(e){
 
-localStorage.setItem("imagem",reader.result);
+let img = new Image();
+
+img.onload = function(){
+
+let canvas = document.createElement("canvas");
+let ctx = canvas.getContext("2d");
+
+let maxWidth = 300;
+
+let scale = maxWidth / img.width;
+
+canvas.width = maxWidth;
+canvas.height = img.height * scale;
+
+ctx.drawImage(img,0,0,canvas.width,canvas.height);
+
+let imagemReduzida = canvas.toDataURL("image/jpeg",0.7);
+
+localStorage.setItem("imagem",imagemReduzida);
 
 carregar();
 
@@ -153,9 +175,14 @@ salvarFirebase();
 
 };
 
-reader.readAsDataURL(this.files[0]);
+img.src = e.target.result;
+
+};
+
+reader.readAsDataURL(file);
 
 });
+
 
 function adicionarHistorico(texto){
 
@@ -165,7 +192,7 @@ lista.unshift(texto);
 
 localStorage.setItem("historico",JSON.stringify(lista));
 
-salvarFirebase(); // CORREÇÃO
+salvarFirebase();
 
 }
 
@@ -281,9 +308,9 @@ carregar();
 
 async function salvarFirebase(){
 
-let idFicha = jogador + "_" + personagem;
+let idFicha=jogador+"_"+personagem;
 
-let dados = {
+let dados={
 
 jogador:jogador,
 nome:localStorage.getItem("nome"),
@@ -301,17 +328,7 @@ imagem:localStorage.getItem("imagem")
 
 };
 
-try{
-
 await setDoc(doc(db,"fichas",idFicha),dados);
-
-console.log("Ficha salva no Firebase:",idFicha);
-
-}catch(erro){
-
-console.error("Erro ao salvar no Firebase:",erro);
-
-}
 
 }
 
