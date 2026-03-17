@@ -58,9 +58,10 @@ localStorage.setItem("equipamentos",equipamentos);
 localStorage.setItem("habilidades",habilidades);
 localStorage.setItem("historia",historia);
 
-/* CORREÇÃO DA VIDA */
-vidaAtual = Number(localStorage.getItem("vidaAtual")) || vidaMax;
+if(!localStorage.getItem("vidaAtual")){
+vidaAtual = vidaMax;
 localStorage.setItem("vidaAtual",vidaAtual);
+}
 
 carregar();
 
@@ -79,7 +80,7 @@ vidaAtual = vidaMax;
 
 localStorage.setItem("vidaAtual",vidaAtual);
 
-salvarFirebase();
+salvarFirebase(); // CORREÇÃO
 
 carregar();
 
@@ -122,7 +123,7 @@ adicionarHistorico(autor+" usou "+tipo+" e causou "+quantidade+" de dano");
 
 localStorage.setItem("vidaAtual",vidaAtual);
 
-salvarFirebase();
+salvarFirebase(); // CORREÇÃO
 
 carregar();
 
@@ -132,7 +133,7 @@ document.getElementById("limparHistorico").addEventListener("click",function(){
 
 localStorage.removeItem("historico");
 
-salvarFirebase();
+salvarFirebase(); // CORREÇÃO
 
 carregar();
 
@@ -164,7 +165,7 @@ lista.unshift(texto);
 
 localStorage.setItem("historico",JSON.stringify(lista));
 
-salvarFirebase();
+salvarFirebase(); // CORREÇÃO
 
 }
 
