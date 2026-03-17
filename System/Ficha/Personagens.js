@@ -281,9 +281,9 @@ carregar();
 
 async function salvarFirebase(){
 
-let idFicha=jogador+"_"+personagem;
+let idFicha = jogador + "_" + personagem;
 
-let dados={
+let dados = {
 
 jogador:jogador,
 nome:localStorage.getItem("nome"),
@@ -301,7 +301,17 @@ imagem:localStorage.getItem("imagem")
 
 };
 
+try{
+
 await setDoc(doc(db,"fichas",idFicha),dados);
+
+console.log("Ficha salva no Firebase:",idFicha);
+
+}catch(erro){
+
+console.error("Erro ao salvar no Firebase:",erro);
+
+}
 
 }
 
